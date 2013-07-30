@@ -1,0 +1,13 @@
+<% provide(:title, 'Forums') %>
+<h1>Forums</h1>
+<h2>We're beginning with just three, <strong>Poverty</strong>, <strong>Topic 2</strong>, and <strong>Topic 3</strong> but are looking to expand.</h2>
+
+All the forums are here!
+
+<ul class="forums">
+  <% @forums.each do |forum| %>
+    <li>
+      <%= link_to forum.name, forum %>
+    </li>
+  <% end %>
+</ul>
