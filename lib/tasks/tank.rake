@@ -14,7 +14,7 @@ end
 
 def make_forums
 	forum1 = Forum.create!(name: "Poverty", description: "Lots of people across the world are poor- what can we do about it? Check out all the topics below")
-	forum2 = Forum.create!(name: "Topic 2", description: "Lots of people across the world are poor- what can we do about it? Check out all the topics below")
-	forum3 = Forum.create!(name: "Topic 3", description: "Lots of people across the world are poor- what can we do about it? Check out all the topics below")
+	forum2 = Forum.create!(name: "Forum 2", description: "Forum 2 dilemma- what can we do about it? Check out all the topics below")
+	forum3 = Forum.create!(name: "Forum 3", description: "Forum 3 dilemma- what can we do about it? Check out all the topics below")
 end
 
