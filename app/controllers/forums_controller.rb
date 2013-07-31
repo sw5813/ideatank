@@ -1,7 +1,7 @@
 class ForumsController < ApplicationController
 	def show
 		@forum = Forum.find(params[:id])
-		#all topics
+		@topics = @forum.topics(params[:id])
 	end
 
 	def index

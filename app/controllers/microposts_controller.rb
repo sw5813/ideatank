@@ -1,15 +1,16 @@
 class MicropostsController < ApplicationController
-	before_action :signed_in_user, only: [:create, :destroy]
+	before_action :signed_in_user
 	before_action :correct_user, only: :destroy
 
 	def create
-		@micropost = current_user.microposts.build(micropost_params)
+		@topic = Topic.find(params[:id])
+		@micropost = topic.microposts.build(micropost_params)
+		@micropost.user_id = current_user.id
 		if @micropost.save
 			flash[:success] = "Your solution has been posted!"
-			redirect_to root_url
+			redirect_to topic_microposts_path(@topic)
 		else
-			@feed_items = []
-			render 'static_pages/home'
+			redirect_to topic_microposts_path(@topic)
 		end
 	end
 
@@ -21,7 +22,7 @@ class MicropostsController < ApplicationController
 	private
 
 		def micropost_params
-			params.require(:micropost).permit(:content)
+			params.require(:micropost).permit(:summary, :content, :user_id)
 		end
 
 		def correct_user

@@ -2,12 +2,12 @@
 <h1>Forums</h1>
 <h2>We're beginning with just three, <strong>Poverty</strong>, <strong>Forum 2</strong>, and <strong>Forum 3</strong> but are looking to expand.</h2>
 
-All the forums are here!
-
 <ul class="forums">
   <% @forums.each do |forum| %>
     <li>
-      <%= link_to forum.name, forum %>
+      <h3><%= link_to forum.name, forum %></h3>
+	  <span class="content"><%= forum.description %></span>
+	  <%= link_to "View Forum", forum_path(1), class: "btn btn-inverse btn-small" %>
     </li>
   <% end %>
 </ul>

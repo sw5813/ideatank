@@ -1,4 +1,8 @@
 <% provide(:title, @forum.name) %>
-<h1><%= @forum.name %></h1>
-<h3><%= @forum.description %></h3>
-Collection of all the topics in this forum!
+<h1><%= @forum.name %> Forum</h1>
+<p class="lead">Forum Description: <%= @forum.description %></p>
+
+<h3>Topics</h3>
+<ul class="topics">
+	<%= render @topics %>
+</ul>

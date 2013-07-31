@@ -1,8 +1,11 @@
+#encoding: utf-8 
 namespace :db do
-	desc "tank- admins, forums"
+	desc "tank- admins, forums, topics"
 	task tank: :environment do
 		make_admins
 		make_forums
+		make_topics
+		make_posts
 	end
 end
 
@@ -18,3 +21,22 @@ def make_forums
 	forum3 = Forum.create!(name: "Forum 3", description: "Forum 3 dilemma- what can we do about it? Check out all the topics below")
 end
 
+def make_topics
+	topic1 = Forum.find(1).topics.create!(problem: "what’s the most efficient way to make sure every poor child in Africa has a malaria net?", description: "background info: this problem has been discussed for X number of years, in 1985, this initiative... by UN resolution 234093820934, etc.")
+	forums = Forum.all
+	3.times do
+		problem = Faker::Lorem.sentence(5)
+		description = Faker::Lorem.paragraph(3)
+		forums.each { |forum| forum.topics.create!(problem: problem, description: description) }
+	end 
+end
+
+def make_posts
+	post1 = Topic.find(1).microposts.create!(summary: "Get a donation from the Bill and Melinda Gates Foundation", content: "Okay, not really, but this is why there are moderators XD Still need to make that functionality tho... not to mention a lot of other stuff... but EXAMPLE SOLUTION POST HERE!", user_id: 1)
+	topics = Topic.all
+	3.times do 
+		summary = Faker::Lorem.sentence(4)
+		content = Faker::Lorem.paragraph(4)
+		topics.each { |topic| topic.microposts.create!(summary: summary, content: content, user_id: 2)}
+	end
+end
