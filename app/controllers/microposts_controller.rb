@@ -1,16 +1,14 @@
 class MicropostsController < ApplicationController
-	before_action :signed_in_user
+	before_action :signed_in_user, only: [:create, :destroy]
 	before_action :correct_user, only: :destroy
 
 	def create
-		@topic = Topic.find(params[:id])
-		@micropost = topic.microposts.build(micropost_params)
-		@micropost.user_id = current_user.id
+		@micropost = Micropost.new(content: params[:micropost][:content], summary: params[:micropost][:summary], topic_id: params[:micropost][:topic_id], user_id: current_user.id)
 		if @micropost.save
 			flash[:success] = "Your solution has been posted!"
-			redirect_to topic_microposts_path(@topic)
+			redirect_to "/topics/#{@micropost.topic_id}"
 		else
-			redirect_to topic_microposts_path(@topic)
+			redirect_to "/topics/#{@micropost.topic_id}"
 		end
 	end
 

@@ -1,9 +1,12 @@
 <%= form_for(@micropost) do |f| %>
-	<%= render 'shared/error_messages', object: f.object %>
+	<%= render 'shared/error_messages', object: f.object %>  
 	<div class="field">
+		<%= f.hidden_field :topic_id, value: @topic.id %>
+		<%= f.hidden_field :user_id, value: current_user.id %>
 		<%= f.text_field :summary, placeholder: "One-line summary..." %>
 		<%= f.text_area :content, placeholder: "Compose a new post..." %>
 	</div>
 	<%= f.submit "Post", class: "btn btn-large btn-primary" %>
 	<span class="countdown"></span>
 <% end %>
+
