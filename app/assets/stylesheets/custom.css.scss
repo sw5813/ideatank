@@ -33,6 +33,9 @@ textarea {
 	h1 {
 		margin-bottom: 10px;
 	}
+	em {
+		color: $gray;
+	}
 }
 
 /* typography */
@@ -57,15 +60,22 @@ h2 {
 	color: $grayLight;
 }
 
+h5 {
+	font-size: 1.2em;
+	letter-spacing: -1px;
+	margin-bottom: 0;
+	text-align: center;
+	font-weight: normal;
+	color: $grayLight;
+}
+
 p {
-	font-size: 1.1 em;
+	font-size: 1.1em;
 	line-height: 1.7em;
 }
 
 /* header */
 
-
-/* header */
 #logo {
   font-size: 1.7em;
   color: black;

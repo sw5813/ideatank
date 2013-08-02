@@ -1,9 +1,9 @@
 
 <li>
-	<span class="forum">Forum: <%= Forum.find(Topic.find(micropost.topic_id).forum_id).name %></span><br>
-	<span class="topic">Topic: <%= Topic.find(micropost.topic_id).problem %></span><br>
-	<span class="summary">Title: <%= wrap(micropost.summary) %></span>
-	<span class="content">Content: <%= wrap(micropost.content) %></span>
+	<span class="forum"><h5>Forum: <%= Forum.find(Topic.find(micropost.topic_id).forum_id).name %></h5></span>
+	<span class="topic"><h5>Topic: <%= Topic.find(micropost.topic_id).problem %></h5></span><br>
+	<span class="summary"><strong><%= wrap(micropost.summary) %></strong></span>
+	<span class="content"><%= wrap(micropost.content) %></span>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(micropost.created_at) %> ago.
 	</span>
