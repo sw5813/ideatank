@@ -8,13 +8,14 @@ class MicropostsController < ApplicationController
 			flash[:success] = "Your solution has been posted!"
 			redirect_to "/topics/#{@micropost.topic_id}"
 		else
+			flash[:error] = "Sorry, there was an error and your solution was not posted."
 			redirect_to "/topics/#{@micropost.topic_id}"
 		end
 	end
 
 	def destroy
 		@micropost.destroy
-		redirect_to root_url
+		redirect_to "/topics/#{@micropost.topic_id}"
 	end
 
 	private
