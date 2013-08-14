@@ -6,4 +6,6 @@ class Micropost < ActiveRecord::Base
 	validates :content, presence: true, length: { maximum: 500 }
 	validates :user_id, presence: true
 	validates :topic_id, presence: true
+	scope :approved, where(approved: true)
+	scope :pending, where(approved: false)
 end

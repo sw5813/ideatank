@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	has_many :microposts, dependent: :destroy
 
+	attr_accessor :first_name, :last_name
+	before_validation { self.name = "#{self.first_name} #{self.last_name}" }
 	before_save { email.downcase! }
 	before_create :create_remember_token
 	validates :name, presence: true, length: { maximum: 50, minimum: 2 }
@@ -22,7 +24,15 @@ class User < ActiveRecord::Base
 		#prelim until ch. 11
 		Micropost.where("user_id = ?", id)
 	end
+=begin
+	def first_name
+		name.split(/\s/).first
+	end
 
+	def last_name
+		name.split(/\s/).last
+	end		
+=end
 	private
 
 		def create_remember_token

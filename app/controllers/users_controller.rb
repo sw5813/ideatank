@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+  before_action :admin_user, only: [:destroy, :make_admin, :index]
   before_filter :signed_in_user_filter, only: [:new, :create]
 
   def show
@@ -42,6 +42,10 @@ class UsersController < ApplicationController
     @users = User.paginate( :per_page => @per_page, page: params[:page], order: 'name ASC') 
   end
 
+  def mod_index
+    @users = User.all
+  end
+
   def destroy
     user = User.find(params[:id])
     unless current_user?(user)
@@ -51,10 +55,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def make_admin
+    @user = User.find(params[:id])
+    @user.update_attribute(:admin, true)
+    flash[:success] = "User is now an administrator."
+    redirect_to users_url
+  end
+
+  def make_mod
+    @user = User.find(params[:id])
+    @user.update_attribute(:mod, true)
+    flash[:success] = "User is now a moderator."
+    redirect_to users_url
+  end
+
   private
 
     def user_params
-    	params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    	params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 
     #Before filters

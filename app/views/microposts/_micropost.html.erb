@@ -1,13 +1,10 @@
 
 <li>
-	<span class="forum"><h5>Forum: <%= Forum.find(Topic.find(micropost.topic_id).forum_id).name %></h5></span>
-	<span class="topic"><h5>Topic: <%= Topic.find(micropost.topic_id).problem %></h5></span><br>
+	<span class="forum"><h5 style="text-align:left">Forum: <%= link_to Forum.find(Topic.find(micropost.topic_id).forum_id).name, Forum.find(Topic.find(micropost.topic_id).forum_id) %></h5></span>
+	<span class="topic"><h5 style="text-align:left">Topic: <%= link_to Topic.find(micropost.topic_id).problem, Topic.find(micropost.topic_id) %></h5></span><br>
 	<span class="summary"><strong><%= wrap(micropost.summary) %></strong></span>
 	<span class="content"><%= wrap(micropost.content) %></span>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(micropost.created_at) %> ago.
 	</span>
-	<% if current_user?(micropost.user) %>
-		<%= link_to "delete", micropost, method: :delete, data: { confirm: "You sure?" }, title: micropost.content %>
-	<% end %>
 </li>

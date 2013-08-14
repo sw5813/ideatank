@@ -1,17 +1,26 @@
 SampleApp::Application.routes.draw do
-  resources :users 
+  resources :users do
+    member do
+      put 'make_admin'
+      put 'make_mod'
+    end
+    collection do
+      get 'mod_index'
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy]
-  resources :forums, only: [:index, :show]
+  resources :microposts, only: [:create, :destroy] 
+  resources :forums, only: [:index, :show] 
   resources :topics, only: [:show]
   root 'static_pages#home'
-  match '/signup', to: 'users#new', via: 'get'
-  match '/signin', to: 'sessions#new', via: 'get'
-  match '/signout', to: 'sessions#destroy', via: 'delete'
-  match '/forums', to: 'forums#index', via: 'get'
-  match '/about', to: 'static_pages#about', via: 'get'
-  match '/vision', to: 'static_pages#vision', via: 'get'
-  match '/contact', to: 'static_pages#contact', via: 'get'
+  get '/signup', to: 'users#new'
+  get '/moderators', to: 'users#mod_index'
+  get '/signin', to: 'sessions#new'
+  delete '/signout', to: 'sessions#destroy'
+  get '/forums', to: 'forums#index'
+  get '/about', to: 'static_pages#about'
+  get '/vision', to: 'static_pages#vision'
+  get '/contact', to: 'static_pages#contact'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
