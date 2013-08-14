@@ -2,15 +2,25 @@
 <h1><%= @topic.problem %></h1>
 <p class="lead">Background Information: <%= @topic.description %></p>
 
-<% if @topic.microposts.any? %>
-    <h3>Solutions (<%= @topic.microposts.count %>)</h3>
-    <ol class="microposts">
-    	<%= render partial: 'shared/micropost', collection: @microposts %>
-    </ol>
-    <%= will_paginate @microposts %>
+<% if current_user.mod? %>
+	<% if @topic.microposts.pending.any? %>
+	    <h3>Pending Review (<%= @topic.microposts.pending.count %>)</h3>
+	    <ol class="microposts">
+	    	<%= render partial: 'shared/micropost', collection: @microposts_pending %>
+	    </ol>
+	    <%= will_paginate @microposts_pending %>
+	<% end %>
 <% end %>
 
-<% if signed_in? && !current_user.mod?%>
+<% if @topic.microposts.approved.any? %>
+    <h3>Solutions (<%= @topic.microposts.approved.count %>)</h3>
+    <ol class="microposts">
+    	<%= render partial: 'shared/micropost', collection: @microposts_approved %>
+    </ol>
+    <%= will_paginate @microposts_approved %>
+<% end %>
+
+<% if signed_in? && !current_user.mod? %>
 	<div class="row">
 	  <aside class="span8 offset2">
 	    <section>

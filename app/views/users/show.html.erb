@@ -20,10 +20,16 @@
 	</aside>
 	<div class="span8">
 		<% if current_user?(@user) %>
-			<% if @user.microposts.any? %>
-				<h3>Posts (<%= @user.microposts.count %>)</h3>
+			<% if @user.microposts.pending.any? %>
+				<h3>Pending Review (<%= @user.microposts.pending.count %>)</h3>
 				<ol class="microposts" %>
-					<%= render @microposts %>
+					<%= render @microposts_pending %>
+				</ol>
+			<% end %>
+			<% if @user.microposts.approved.any? %>
+				<h3>Approved Posts (<%= @user.microposts.approved.count %>)</h3>
+				<ol class="microposts" %>
+					<%= render @microposts_approved %>
 				</ol>
 			<% end %>
 		<% end %>
