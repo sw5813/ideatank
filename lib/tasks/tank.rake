@@ -12,8 +12,8 @@ end
 def make_users
 	admin = User.create!(first_name: "Summer", last_name: "Wu", email: "summer.wu@yale.edu", password: "1sum$soc13", password_confirmation: "1sum$soc13", admin: true)
 	#example
-	mod = User.create!(first_name: "Summer", last_name: "Wu", email: "sw5813@gmail.com", password: "extra12345", password_confirmation: "extra12345", mod: true)
 	example = User.create!(first_name: "Example", last_name: "User", email: "example@railstutorial.org", password: "foobar", password_confirmation: "foobar")
+	mod = User.create!(first_name: "Summer", last_name: "Wu", email: "sw5813@gmail.com", password: "extra12345", password_confirmation: "extra12345", mod: true)
 end
 
 def make_forums
