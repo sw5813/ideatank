@@ -8,7 +8,7 @@ class MicropostsController < ApplicationController
 			flash[:success] = "Your solution has been submitted for consideration!"
 			redirect_to "/topics/#{@micropost.topic_id}"
 		else
-			flash[:error] = "Sorry, there was an error and your solution was not posted."
+			flash[:error] = "Sorry, there was an error and your solution was not submitted."
 			redirect_to "/topics/#{@micropost.topic_id}"
 		end
 	end
@@ -17,13 +17,6 @@ class MicropostsController < ApplicationController
 		@micropost.destroy
 		redirect_to "/topics/#{@micropost.topic_id}"
 	end
-
-	def approve
-    	@micropost = Micropost.find(params[:id])
-    	@micropost.update_attribute(:approved, true)
-    	flash[:success] = "Solution has been approved."
-    	redirect_to "/topics/#{@micropost.topic_id}"
-  	end
 
 	private
 

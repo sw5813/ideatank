@@ -2,7 +2,7 @@
 <h1><%= @topic.problem %></h1>
 <p class="lead">Background Information: <%= @topic.description %></p>
 
-<% if @topic.microposts.approved.any? %>
+<% if @topic.microposts.any? %>
     <h3>Solutions (<%= @topic.microposts.count %>)</h3>
     <ol class="microposts">
     	<%= render partial: 'shared/micropost', collection: @microposts %>
