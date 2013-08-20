@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     @microposts_approved = @user.microposts.approved.paginate(page: params[:page])
     @microposts_pending = @user.microposts.pending.paginate(page: params[:page])
+    @microposts = Micropost.all
+    @forums = Forum.all
   end
 
   def new
