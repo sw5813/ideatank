@@ -9,9 +9,11 @@ SampleApp::Application.routes.draw do
     end
   end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy]
+  resources :microposts, only: [:create, :destroy] do
+    put 'approve_post', on: :member
+  end
   resources :forums, only: [:index, :show] 
-  resources :topics, only: [:show]
+  resources :topics, only: [:show] 
   root 'static_pages#home'
   get '/signup', to: 'users#new'
   get '/moderators', to: 'users#mod_index'

@@ -15,8 +15,17 @@ class MicropostsController < ApplicationController
 
 	def destroy
 		@micropost.destroy
+		flash[:error] = "Post rejected."
 		redirect_to "/topics/#{@micropost.topic_id}"
 	end
+
+	def approve_post
+		@micropost = Micropost.find(params[:id])
+		@micropost.update_attribute(:approved, true)
+		flash[:success] = "Post approved."
+		redirect_to "/topics/#{@micropost.topic_id}"
+	end
+
 
 	private
 
@@ -25,7 +34,11 @@ class MicropostsController < ApplicationController
 		end
 
 		def correct_user
-			@micropost = current_user.microposts.find_by(id: params[:id])
-			redirect_to root_url if @micropost.nil?
+			if current_user.mod?
+				@micropost = Micropost.find(params[:id])
+			else
+				@micropost = current_user.microposts.find_by(id: params[:id])
+			end
+			redirect_to root_url if @micropost.nil? 
 		end
 end
