@@ -14,7 +14,7 @@
 		<%= link_to "delete", micropost, method: :delete, data: { confirm: "You sure?" }, title: micropost.content %>
 	<% end %>
 
-	<% if current_user.mod? and !micropost.approved? %>
+	<% if signed_in? and current_user.mod? and !micropost.approved? %>
 		<%= link_to "Approve", approve_post_micropost_path(micropost), method: :put %> | 
 		<%= link_to "Reject", micropost, method: :delete, title: micropost.content %>
 	<% end %>

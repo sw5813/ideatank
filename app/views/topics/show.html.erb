@@ -2,7 +2,7 @@
 <h1><%= @topic.problem %></h1>
 <p class="lead">Background Information: <%= @topic.description %></p>
 
-<% if current_user.mod? %>
+<% if signed_in? && current_user.mod? %>
 	<% if @topic.microposts.pending.any? %>
 	    <h3>Pending Review (<%= @topic.microposts.pending.count %>)</h3>
 	    <ol class="microposts">

@@ -1,0 +1,59 @@
+<div id="homeslider" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#homeslider" data-slide-to="0" class="active"></li>
+    <li data-target="#homeslider" data-slide-to="1"></li>
+    <li data-target="#homeslider" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+
+    <div class="item">
+      <img src="/assets/poverty_temp.jpg" alt="Poverty">
+      <div class="container">
+        <div class="carousel-caption">
+          <h3 style="color:white">Poverty</h3>
+          <p>What can we do to make a difference?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="/assets/college_temp.jpg" alt="College">
+      <div class="container">
+        <div class="carousel-caption">
+          <h3 style="color:white">Innovative Solutions</h3>
+          <p>from the nation's brightest university students</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="item active">
+      <img src="/assets/globe_temp.jpg" alt="Globe">
+      <div class="container">
+        <div class="carousel-caption">
+          <h3 style="color:white">Welcome to TANK</h3>
+          <p>The only online, collaborative think tank for college students.</p><br>
+          <% if !signed_in? %>
+            <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+          <% else %>
+            <%= link_to "Contribute to Forums", forums_path, class: "btn btn-large btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#homeslider" data-slide="prev">&lsaquo;</a>
+  <a class="right carousel-control" href="#homeslider" data-slide="next">&rsaquo;</a>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.carousel').carousel({
+      interval: 3000
+    });
+  });
+</script>

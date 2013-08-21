@@ -1,15 +1,8 @@
-<div class="center hero-unit">
-	<h1>Welcome to TANK</h1>
-	<h2>
-		The only online, collaborative think tank for college students.
-	</h2>
-	<% if !signed_in? %>
-		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-	<% else %>
-		<%= link_to "Contribute to Forums", forums_path, class: "btn btn-large btn-primary" %>
-	<% end %>
-</div><hr>
-<div class="center">
-	<em>Vision blurb here</em><hr>
-</div>
+<%= render 'carousel' %>
 
+<div class="row">
+	<div class="span6">picture</div>
+	<div class="span6 lead">
+		<em>Vision blurb here</em>
+	</div>
+</div>
