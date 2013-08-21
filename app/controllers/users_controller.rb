@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @microposts_pending = @user.microposts.pending.paginate(page: params[:page])
     @microposts = Micropost.all
     @forums = Forum.all
+    @topics = Topic.all
   end
 
   def new

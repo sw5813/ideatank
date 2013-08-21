@@ -1,3 +1,17 @@
 <p class="lead">There are currently <strong><%= @microposts.pending.count %></strong> posts pending review</p>
 
+<ul>
+<% @forums.each do |forum| %>
+	<li><h3><%= forum.name %></h3></li>
+	<% forum.topics.each do |topic| %>
+		<% if topic.microposts.pending.any? %>
+			<ul>
+				<li><%= link_to topic.problem, topic %> (<%= topic.microposts.pending.count %>)</li>
+			</ul>
+		<% end %>
+	<% end %>
+<% end %>
+
+
+	
 
