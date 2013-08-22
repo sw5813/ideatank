@@ -100,6 +100,10 @@ p {
 	z-index: 15;
 }
 
+.navbar {
+	margin-right:20px;
+}
+
 .navbar-inner {
   font-weight: bold;
   padding-top:5px;
@@ -143,6 +147,7 @@ p {
 .carousel-indicators {
 	left:48%;
 	margin-top: 480px;
+	bottom: 10px;
 }
 
 /* footer */
