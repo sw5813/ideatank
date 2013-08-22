@@ -85,7 +85,7 @@ p {
 }
 
 #logo:hover {
-	color: #fff;
+	background-color: #000;
 	text-decoration: none; 
 }
 
@@ -93,6 +93,7 @@ p {
     background: rgba(0,0,0,0.6);
     border-bottom: 1px solid rgb(95, 95, 95);
     border-top: 1px solid rgb(95, 95, 95);
+    border-radius: 10px;
 }
 
 .navbar-wrapper {
@@ -114,6 +115,10 @@ p {
   		margin-right: 0px;
   	}
   }
+}
+
+nav {
+	color: #fff;
 }
 
 /* CUSTOMIZE THE CAROUSEL
@@ -138,7 +143,7 @@ p {
   color: white;
   text-align: center;
   text-shadow: 2px 3px 2px #000;
-  background: rgba(0,0,0,0.2);
+  background: none;
   .btn {
     text-shadow: none; // No shadow for button elements in carousel-caption
   }
