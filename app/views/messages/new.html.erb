@@ -1,0 +1,27 @@
+<% provide(:title, 'Contact Us') %>
+<h1>Contact Us</h1>
+<p>
+	Have an idea? We're always open to new ideas! Want to join our team as a moderator? Let us know your field of expertise. If you'd rather contact us directly via email, please visit the <%= link_to "\"About\"", about_path %> page.
+</p>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@message) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>  
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :subject %>
+      <%= f.text_field :subject %>
+
+      <%= f.label :message %>
+      <%= f.text_area :message %>
+
+      <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -14,6 +14,7 @@ SampleApp::Application.routes.draw do
   end
   resources :forums, only: [:index, :show] 
   resources :topics, only: [:show] 
+  resources :messages, only: [:new, :create]
   root 'static_pages#home'
   get '/signup', to: 'users#new'
   get '/moderators', to: 'users#mod_index'
@@ -22,7 +23,7 @@ SampleApp::Application.routes.draw do
   get '/forums', to: 'forums#index'
   get '/about', to: 'static_pages#about'
   get '/vision', to: 'static_pages#vision'
-  get '/contact', to: 'static_pages#contact'
+  get '/contact', to: 'messages#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -85,7 +85,7 @@ p {
 }
 
 #logo:hover {
-	background-color: #000;
+	color: $grayLight;
 	text-decoration: none; 
 }
 
@@ -115,10 +115,6 @@ p {
   		margin-right: 0px;
   	}
   }
-}
-
-nav {
-	color: #fff;
 }
 
 /* CUSTOMIZE THE CAROUSEL

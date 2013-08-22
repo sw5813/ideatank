@@ -6,10 +6,10 @@ class MicropostsController < ApplicationController
 		@micropost = Micropost.new(content: params[:micropost][:content], summary: params[:micropost][:summary], topic_id: params[:micropost][:topic_id], user_id: current_user.id)
 		if @micropost.save
 			flash[:success] = "Your solution has been submitted for consideration!"
-			redirect_to "/topics/#{@micropost.topic_id}"
+			redirect_to :back
 		else
-			flash[:error] = "Sorry, there was an error and your solution was not submitted."
-			redirect_to "/topics/#{@micropost.topic_id}"
+			flash[:error] = "Summary cannot be blank, and post must be between 0 and 500 characters."
+			redirect_to :back
 		end
 	end
 
