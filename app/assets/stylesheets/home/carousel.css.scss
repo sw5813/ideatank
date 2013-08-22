@@ -138,7 +138,7 @@ p {
   color: white;
   text-align: center;
   text-shadow: 2px 3px 2px #000;
-  background: none;
+  background: rgba(0,0,0,0.2);
   .btn {
     text-shadow: none; // No shadow for button elements in carousel-caption
   }
