@@ -17,7 +17,7 @@ class PasswordResetsController < ApplicationController
 	end
 
 	def edit
-		@user = User.find_by!(password_reset_token: params[:id])
+		@user = User.find_by(password_reset_token: params[:id])
 		if @user.nil?
 			redirect_to signin_path, notice: "Password reset does not exist."
 		elsif @user.password_reset_sent_at < 2.hours.ago
