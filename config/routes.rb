@@ -15,6 +15,7 @@ SampleApp::Application.routes.draw do
   resources :forums, only: [:index, :show] 
   resources :topics, only: [:show] 
   resources :messages, only: [:new, :create]
+  resources :password_resets, only: [:new, :create, :edit, :update]
   root 'static_pages#home'
   get '/signup', to: 'users#new'
   get '/moderators', to: 'users#mod_index'

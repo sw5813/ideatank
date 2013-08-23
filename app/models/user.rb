@@ -24,6 +24,23 @@ class User < ActiveRecord::Base
 		#prelim until ch. 11
 		Micropost.where("user_id = ?", id)
 	end
+
+	def send_password_reset
+		create_password_reset_token
+		self.password_reset_sent_at = Time.zone.now
+		save!(validate: false)
+		UserMailer.password_reset(self).deliver
+	end
+
+	def valid_attribute?(attr, value)
+	  u = User.new(attr => value)
+	  u.valid?
+	  if(u.errors.to_hash.has_key?(attr))
+	    false
+	  else
+	    true
+	  end
+	end
 =begin
 	def first_name
 		name.split(/\s/).first
@@ -37,5 +54,9 @@ class User < ActiveRecord::Base
 
 		def create_remember_token
 			self.remember_token = User.encrypt(User.new_remember_token)
+		end
+
+		def create_password_reset_token
+			self.password_reset_token = User.encrypt(User.new_remember_token)
 		end
 end
