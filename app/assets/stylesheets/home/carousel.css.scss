@@ -121,11 +121,12 @@ p {
 	color: white !important;
 	&:hover {
 		color: $grayLight !important;
-		.white-caret {
-			border-top-color: $grayLight !important;
-			border-bottom-color: $grayLight !important;
-		}
 	}
+}
+
+.dropdown-toggle:hover .white-caret {
+	border-top-color: $grayLight !important;
+	border-bottom-color: $grayLight !important;
 }
 
 .white-caret {
@@ -163,8 +164,7 @@ p {
 
 .carousel-indicators {
 	left:48%;
-	margin-top: 480px;
-	bottom: 10px;
+	top: 92%;
 }
 
 /* footer */
