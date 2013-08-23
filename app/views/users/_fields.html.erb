@@ -4,8 +4,8 @@
 		<%= f.label :last_name, class: "span6 row", style: "margin:0" %>
 	</div>
 	<div class="controls row-fluid">
-		<%= f.text_field :first_name, class: "span6 row", style: "margin:0" %>
-		<%= f.text_field :last_name, class: "span6 row", style: "margin:0" %>
+		<span class="<%= @errors %>"><%= f.text_field :first_name, class: "span6 row", style: "margin:0" %></span>
+		<span class="<%= @errors %>"><%= f.text_field :last_name, class: "span6 row", style: "margin:0" %></span>
 	</div>
 </div>
 

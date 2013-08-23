@@ -38,6 +38,9 @@ class UsersController < ApplicationController
   		redirect_to @user
   	else
   		render 'new'
+      if @user.name.blank?
+        @errors = "field_with_errors"
+      end
   	end
   end
 

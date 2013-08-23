@@ -6,16 +6,16 @@
           <div class="container">
             <%= link_to "tank logo", root_path, id: "logo" %>
             <nav>
-              <ul class="nav pull-right">
-                <li><%= link_to "Our Vision", vision_path %></li>
-                <li><%= link_to "Our Moderators", moderators_path %></li>
-                <li><%= link_to "Forums", forums_path %></li>
+              <ul class="nav pull-right white">
+                <li><%= link_to "Our Vision", vision_path, {class: "white"} %></li>
+                <li><%= link_to "Our Moderators", moderators_path, {class: "white"} %></li>
+                <li><%= link_to "Forums", forums_path, {class: "white"} %></li>
                 <% if signed_in? %>
                   <% if current_user.admin? %>
-                    <li><%= link_to "Users", users_path %></li>
+                    <li><%= link_to "Users", users_path, {class: "white"} %></li>
                   <% end %>
                   <li id="fat-menu" class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="#" class="dropdown-toggle white" data-toggle="dropdown">
                       Account <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">

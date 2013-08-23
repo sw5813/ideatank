@@ -4,18 +4,18 @@ class MicropostsController < ApplicationController
 
 	def create
 		@micropost = Micropost.new(content: params[:micropost][:content], summary: params[:micropost][:summary], topic_id: params[:micropost][:topic_id], user_id: current_user.id)
+		@topic = Topic.find(@micropost.topic_id)
 		if @micropost.save
 			flash[:success] = "Your solution has been submitted for consideration!"
 			redirect_to :back
 		else
-			flash[:error] = "Summary cannot be blank, and post must be between 0 and 500 characters."
-			redirect_to :back
+			render "topics/show", location: topic_path(@topic)
 		end
 	end
 
 	def destroy
 		@micropost.destroy
-		flash[:error] = "Post rejected."
+		flash[:error] = "Post deleted."
 		redirect_to "/topics/#{@micropost.topic_id}"
 	end
 

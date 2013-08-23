@@ -117,6 +117,13 @@ p {
   }
 }
 
+.white {
+	color: white !important;
+	&:hover {
+		color: $grayLight !important;
+	}
+}
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
