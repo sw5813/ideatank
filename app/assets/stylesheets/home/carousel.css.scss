@@ -121,7 +121,16 @@ p {
 	color: white !important;
 	&:hover {
 		color: $grayLight !important;
+		.white-caret {
+			border-top-color: $grayLight !important;
+			border-bottom-color: $grayLight !important;
+		}
 	}
+}
+
+.white-caret {
+	border-top-color: white !important;
+	border-bottom-color: white !important;
 }
 
 /* CUSTOMIZE THE CAROUSEL
