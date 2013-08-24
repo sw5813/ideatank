@@ -24,4 +24,4 @@ def secure_token
 	end
 end
 
-SampleApp::Application.config.secret_key_base = secure_token
+IdeaTank::Application.config.secret_key_base = secure_token

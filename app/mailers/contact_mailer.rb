@@ -4,6 +4,6 @@ class ContactMailer < ActionMailer::Base
 
   def contact_message(message)
   	@message = message
-  	mail(subject: "#{@message.subject}")
+  	mail(subject: "Message from visitor to TANK website")
   end
 end

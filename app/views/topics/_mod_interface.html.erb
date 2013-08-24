@@ -1,5 +1,7 @@
 <p class="lead">There are currently <strong><%= @microposts.pending.count %></strong> posts pending review</p>
 
+<p>Idea: make this a vertical accordion</p>
+
 <ul>
 <% @forums.each do |forum| %>
 	<li><h3><%= forum.name %></h3></li>

@@ -1,4 +1,4 @@
-SampleApp::Application.routes.draw do
+IdeaTank::Application.routes.draw do
   resources :users do
     member do
       put 'make_admin'
