@@ -1,4 +1,19 @@
 @import "bootstrap";
+@font-face {
+    font-family: 'AlexRegular';
+    src: url(font-path('alexregular-webfont.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('alexregular-webfont.woff')) format('woff'), 
+         url(font-path('alexregular-webfont.ttf'))  format('truetype'),
+         url(font-path('alexregular-webfont.svg') + "#AlexRegular") format('svg');
+}
+
+@font-face {
+    font-family: 'DroidSerif';
+    src: url(font-path('droidserif-webfont.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('droidserif-webfont.woff')) format('woff'), 
+         url(font-path('droidserif-webfont.ttf'))  format('truetype'),
+         url(font-path('droidserif-webfont.svg') + "#DroidSerif") format('svg');
+}
 
 /* mixins, variables, etc. */
 
@@ -38,6 +53,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1;
+	font-family: 'AlexRegular';
 }
 
 h1 {
@@ -68,6 +84,7 @@ h5 {
 p {
 	font-size: 1.1em;
 	line-height: 1.7em;
+	font-family: TrebuchetMS
 }
 
 /* header */
@@ -107,6 +124,7 @@ p {
 
 .navbar-inner {
   font-weight: bold;
+  font-family: 'DroidSerif';
   padding-top:5px;
   padding-bottom:5px;
   .pull-right li:last-child {
