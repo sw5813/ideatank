@@ -78,5 +78,6 @@ IdeaTank::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   config.assets.precompile += ['application.css', 'home.css']
+  config.assets.precompile += ['application.js']
   config.action_mailer.default_url_options = { host: "tankprototype.herokuapp.com" }
 end
