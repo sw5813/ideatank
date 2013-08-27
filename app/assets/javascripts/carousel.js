@@ -1,9 +1,13 @@
-
-
-jQuery(document).ready(function($) {
-  // code here, using $ as usual
-
-  $('.carousel').carousel({
-  	interval: 1000
+$(document).on('mouseenter', '.carousel', function() {
+  $('.carousel').carousel( {
+  	interval: 3000
   });
+});
+
+$(document).on('mouseover', '.carousel', function() {
+  $('.carousel').carousel('pause');
+});
+
+$(document).on('mouseleave', '.carousel', function() {
+  $('.carousel').carousel('cycle');
 });
